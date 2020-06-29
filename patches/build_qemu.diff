@@ -1,5 +1,5 @@
---- build_qemu_support.sh-clean 2020-06-29 01:30:49.693452647 +0000
-+++ build_qemu_support.sh       2020-06-28 23:40:06.643606107 +0000
+--- qemu_mode/build_qemu_support.sh	2020-06-29 01:30:49.693452647 +0000
++++ /qemu_mode/build_qemu_support.sh    2020-06-28 23:40:06.643606107 +0000
 @@ -131,6 +131,10 @@
  patch -p1 <../patches/elfload.diff || exit 1
  patch -p1 <../patches/cpu-exec.diff || exit 1
