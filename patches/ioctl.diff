@@ -1,0 +1,7 @@
+--- qemu-2.10.0-rc3-clean/linux-user/ioctls.h   2020-06-28 21:50:41.043137033 +0000
++++ qemu-2.10.0-rc3/linux-user/ioctls.h 2020-06-28 23:01:07.675688660 +0000
+@@ -1,3 +1,4 @@
++#include <linux/sockios.h>
+      /* emulated ioctl list */
+ 
+      IOCTL(TCGETS, IOC_R, MK_PTR(MK_STRUCT(STRUCT_termios)))

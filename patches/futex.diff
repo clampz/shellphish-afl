@@ -1,0 +1,9 @@
+--- qemu-2.10.0-rc3-clean/include/qemu/futex.h  2020-06-28 21:50:41.127138624 +0000
++++ qemu-2.10.0-rc3/include/qemu/futex.h        2020-06-28 21:59:05.372663433 +0000
+@@ -13,6 +13,7 @@
+ 
+ #include <sys/syscall.h>
+ #include <linux/futex.h>
++#include <x86_64-linux-gnu/asm/unistd_64.h>
+ 
+ #define qemu_futex(...)              syscall(__NR_futex, __VA_ARGS__)

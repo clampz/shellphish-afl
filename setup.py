@@ -13,7 +13,11 @@ AFL_UNIX_GEN = os.path.join(os.curdir, "patches", "build.sh")
 AFL_CGC_INSTALL_PATH = os.path.join("bin", "afl-cgc")
 AFL_MULTI_CGC_INSTALL_PATH = os.path.join("bin", "afl-multi-cgc")
 SUPPORTED_ARCHES = ["aarch64", "x86_64", "i386", "arm", "ppc", "ppc64", "mips", "mipsel", "mips64"]
-QEMU_PATCH = "patches/qemu_ubuntu20/*"
+QEMU_PATCH_1 = "patches/memfd.diff"
+QEMU_PATCH_2 = "patches/syscall.diff"
+QEMU_PATCH_3 = "patches/ioctl.diff"
+QEMU_PATCH_4 = "patches/futex.diff"
+QEMU_PATCH_5 = "patches/configure.diff"
 MULTIARCH_LIBRARY_PATH = os.path.join("bin", "fuzzer-libs")
 AFL_QEMU_MODE_PATCH = AFL_UNIX_INSTALL_PATH+"/qemu_mode/patches/"
 AFL_UNIX_FUZZ = os.path.join(AFL_UNIX_INSTALL_PATH)
@@ -36,7 +40,19 @@ def _setup_other_arch():
             raise LibError("Build file doesn't exist")
 
         # patch for qemu to work with ubuntu 18.04 and above
-        if subprocess.check_call(['cp',QEMU_PATCH,AFL_QEMU_MODE_PATCH]) != 0:
+        if subprocess.check_call(['cp',QEMU_PATCH_1,AFL_QEMU_MODE_PATCH]) != 0:
+            raise LibError('Patch to work Qemu with Ubuntu 18 not found')
+
+        if subprocess.check_call(['cp',QEMU_PATCH_2,AFL_QEMU_MODE_PATCH]) != 0:
+            raise LibError('Patch to work Qemu with Ubuntu 18 not found')
+
+        if subprocess.check_call(['cp',QEMU_PATCH_3,AFL_QEMU_MODE_PATCH]) != 0:
+            raise LibError('Patch to work Qemu with Ubuntu 18 not found')
+
+        if subprocess.check_call(['cp',QEMU_PATCH_4,AFL_QEMU_MODE_PATCH]) != 0:
+            raise LibError('Patch to work Qemu with Ubuntu 18 not found')
+
+        if subprocess.check_call(['cp',QEMU_PATCH_5,AFL_QEMU_MODE_PATCH]) != 0:
             raise LibError('Patch to work Qemu with Ubuntu 18 not found')
 
         if subprocess.check_call(['./build.sh'] + SUPPORTED_ARCHES, cwd=AFL_UNIX_INSTALL_PATH) != 0:

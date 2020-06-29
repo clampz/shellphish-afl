@@ -1,0 +1,12 @@
+--- qemu-2.10.0-rc3-clean/configure     2020-06-28 21:50:40.867133698 +0000
++++ qemu-2.10.0-rc3/configure   2020-06-28 22:06:41.985258785 +0000
+@@ -3855,7 +3855,7 @@
+ # check if memfd is supported
+ memfd=no
+ cat > $TMPC << EOF
+-#include <sys/memfd.h>
++#include <sys/mman.h>
+ 
+ int main(void)
+ {
+

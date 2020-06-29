@@ -1,0 +1,16 @@
+README.md
+fetchlibs.sh
+setup.py
+patches/afl-patch.diff
+patches/build.sh
+patches/build_qemu.diff
+patches/qemu_ubuntu20/configure.diff
+patches/qemu_ubuntu20/futex.diff
+patches/qemu_ubuntu20/ioctl.diff
+patches/qemu_ubuntu20/memfd.diff
+patches/qemu_ubuntu20/syscall.diff
+shellphish_afl/__init__.py
+shellphish_afl.egg-info/PKG-INFO
+shellphish_afl.egg-info/SOURCES.txt
+shellphish_afl.egg-info/dependency_links.txt
+shellphish_afl.egg-info/top_level.txt
